@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rating Events</title>
+</head>
+<body>
+	<h1>Events Rating</h1>
+	<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+	</style>
+
+	<table>
+		<th>Event Id </th>
+		<th>Title</th>
+
+	{% for line in rateEvents %}
+		<tr>
+			<td>{{line.event_id}}</td>
+			<td>{{line.title}}</td>
+		</tr>
+	{% endfor %}
+
+		<p>Choose an event to rate: </p>
+		<form action="/rateEvent" method="POST">
+			<label for="event">Choices:</label>
+			<select name="event">
+			{% for line	in rateEvents %}
+				<option>{{line.event_id}}</option>
+			{%endfor%}
+			</select>
+			<input type="submit" name="submit" value="Rate">
+		</form>
+	</table>
+	<br>
+
+	<a href="/home">Home</a>
+
+</body>
+</html>

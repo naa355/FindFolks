@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html>	
+
+<body>
+	<h3>Authorized Events</h3>
+<br> 
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>Event_ID </th>
+	<th>Title</th>
+
+{% for line in chooseEvents %}
+	<tr>
+		<td>{{line.event_id}}</td>
+		<td>{{line.title}}</td>
+	</tr>
+{% endfor %}
+
+	<p>Choose an Event to Add Tags for: </p>
+	<form action="/addtagsform" method="POST">
+		<label for="event_id">Choices:</label>
+		<select name="event_id">
+		{% for line	in chooseEvents %}
+			<option>{{line.event_id}}</option>
+		{%endfor%}
+		</select>
+		<input type="submit" name="submit" value="Create">
+	</form>
+</table>
+<br>
+
+<a href="/home">Home</a>
+
+</body>
+
+
+</html>

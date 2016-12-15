@@ -1,0 +1,32 @@
+body {
+    font-family: 'PT Sans', sans-serif;
+}
+
+a {
+    width: 30%;
+    background-color:#813772;
+    color: white;
+    margin: 20px;
+    padding: 10px 15px;
+    border: none;
+}
+
+/*forms*/
+
+/*form {
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+}
+
+input[type=submit] {
+    width: 30%;
+    background-color:#813772;
+    color: white;
+    margin: 20px;
+    padding: 10px 15px;
+    border: none;
+}
+
+input[type=submit]:hover {
+    background-color: #49274A;
+}*/

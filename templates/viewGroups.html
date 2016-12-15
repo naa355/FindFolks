@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h3>View Groups</h3>
+<br>
+
+<style type="text/css">
+    table, th, td{
+        border: 1px solid black;
+    }
+</style>
+
+
+<table>
+    <th>Group ID </th>
+    <th>Group Name</th>
+    <th>Description</th>
+
+{% for line in viewGroups %}
+    <tr>
+        <td>{{line.group_id}}</td>
+        <td>{{line.group_name}}</td>
+        <td>{{line.description}}</td>
+    </tr>
+{% endfor %}
+
+</table>
+<br>
+
+<a href="/home">Home</a>
+
+</body>
+
+
+</html>

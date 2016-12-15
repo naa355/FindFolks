@@ -1,0 +1,59 @@
+<html>
+<head>
+</head>
+<body>
+<style type="text/css">
+
+	body {
+		font-family: 'PT Sans', sans-serif;
+		margin: 20px;
+		color:#813772 ;
+	}
+	h3 {
+		margin: 20px;
+	}
+	form {
+
+			  font-family: 'PT Sans', sans-serif;
+			  color: white;
+			}
+
+			input[type=text] {
+				margin: 20px;
+			    padding: 10px 15px;
+			}
+
+			input[type=password] {
+				margin: 20px;
+			    padding: 10px 15px;
+			}
+
+			input[type=submit] {
+			    width: 10%;
+			    background-color:#813772;
+			    color: white;
+			    margin: 20px;
+			    padding: 10px 15px;
+			    border: none;
+			}
+
+			input[type=submit]:hover {
+			    background-color: #49274A;
+			}
+</style>
+<h3>Please Login!</h3>
+<form action="/loginAuth" method="POST">
+	<input type="text" name = "username" placeholder="username" required/> </br>
+	<input type="password" name = "password" placeholder="password" required/></br>
+	<input type="submit" value = Login />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<a href="/">Go back</a>
+
+</body>
+
+
+</html>

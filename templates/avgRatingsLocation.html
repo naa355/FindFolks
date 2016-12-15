@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Average Ratings for Location</h1>
+	<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+	</style>
+
+	<table>
+		
+		<th>Location</th>
+		<th>Zipcode</th>
+		<th>Address</th>
+		<th>Average Rating</th>
+		
+		{% for line in avgRatingsLoc %} 
+		<tr>
+			<td>{{line.location_name}}</td>
+			<td>{{line.zipcode}}</td>
+			<td>{{line.address}}</td>
+			<td>{{line.avgRatingLoc}}</td>			
+		</tr>
+	{% endfor %}
+	</table>
+	
+
+<br>
+<a href="/home"> Home</a>
+
+
+</body>
+</html>

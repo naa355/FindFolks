@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body>
+
+
+<br>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+<table>
+	<th>Id</th>
+	<th>Event</th>
+	<th>Time</th>
+	<th>Interest</th>
+
+{% for line in an_event %}
+	<tr>
+		<td>{{line.event_id}}</td>
+		<td>{{line.title}}</td>
+		<td>{{line.start_time}}</td>
+		<td>{{line.keyword}}
+	</tr>
+{% endfor %}
+</table>
+<a href="/home">Home</a>
+</body>
+</html>

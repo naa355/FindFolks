@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rating Locations</title>
+</head>
+<body>
+	<h1>Rating Locations</h1>
+	<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+	</style>
+
+	<table>
+		<th>Location Name </th>
+		<th>Zipcode</th>
+		<th>Address</th>
+
+	{% for line in locations %}
+		<tr>
+			<td>{{line.location_name}}</td>
+			<td>{{line.zipcode}}</td>
+			<td>{{line.address}}</td>
+		</tr>
+	{% endfor %}
+
+		<p>Choose a location to rate: </p>
+		<form action="/rateLocation" method="POST">
+			<label for="location">Choices:</label>
+			<select name="location">
+			{% for line	in locations %}
+				<option>{{line.location_name}}</option>
+			{%endfor%}
+			</select>
+			<input type="submit" name="submit" value="Rate">
+		</form>
+	</table>
+	<br>
+
+	<a href="/home">Home</a>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body>
+
+
+<br>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+<table>
+	<th>groupID</th>
+	<th>Name</th>
+	<th>Description</th>
+	<th>Interest</th>
+
+{% for line in a_group %}
+	<tr>
+		<td>{{line.group_id}}</td>
+		<td>{{line.group_name}}</td>
+		<td>{{line.description}}</td>
+		<td>{{line.keyword}}
+	</tr>
+{% endfor %}
+</table>
+<a href="/home">Home</a>
+</body>
+</html>

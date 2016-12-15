@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rating Interests</title>
+</head>
+<body>
+	<h1>Rating Interests</h1>
+	<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+	</style>
+
+	<table>
+		<th>Category </th>
+		<th>Keyword</th>
+
+	{% for line in interests %}
+		<tr>
+			<td>{{line.category}}</td>
+			<td>{{line.keyword}}</td>
+		</tr>
+	{% endfor %}
+
+		<p>Choose an interest to rate: </p>
+		<form action="/rateInterest" method="POST">
+			<label for="category">Choices:</label>
+			<select name="category">
+			{% for line	in interests %}
+				<option>{{line.category}}</option>
+			{%endfor%}
+			</select>
+			<input type="submit" name="submit" value="Rate">
+		</form>
+	</table>
+	<br>
+
+	<a href="/home">Home</a>
+
+</body>
+</html>

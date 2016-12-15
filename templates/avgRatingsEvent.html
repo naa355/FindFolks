@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>Average Event Ratings</h1> 
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+
+</table>
+
+<div>
+</div>
+
+<table>
+	
+	<th>Title</th>
+	<th>Event_ID</th>
+	<th>Average Rating</th>
+	
+	{% for line in avgRatingsEvent %} 
+	<tr>
+		<td>{{line.title}}</td>
+		<td>{{line.event_id}}</td>
+		<td>{{line.avgRatingEvent}}</td>	
+	</tr>
+{% endfor %}
+</table>
+	
+<a href="/home"> Home </a>
+
+</body>
+
+</html>

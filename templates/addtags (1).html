@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/addtags" method="POST">
+	<input type="text" name = "keyword" placeholder="Tag" required/>
+	</br>
+	<input type="submit" value = Add />
+</form>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+<table>
+	<th>Tags</th>
+
+{% for line in tags %}
+	<tr>
+		<td>{{line.keyword}}</td>
+	</tr>
+
+{% endfor %}
+</table>
+
+<br>
+<a href="/home">Done</a>
+</body>
+</html>

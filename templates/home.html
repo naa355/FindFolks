@@ -1,0 +1,221 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>Databases Project</title>
+		<link rel="stylesheet" type="text/css" href="main.css">
+	</head>
+	<body>
+
+	<style type="text/css">
+		body {
+			margin: 40px;
+
+		}
+		h1, h4{
+			font-family: 'PT Sans', sans-serif;
+			color:#813772 ;
+		}
+	</style>
+
+	<h1>Welcome {{username}} to FindFolks!</h1> 
+
+	<!-- Display Events -->
+	<h4>Display Events</h4>
+	<style type="text/css">
+		table, th, td{
+			border: 1px solid black;
+		}
+	</style>
+
+	<table>
+		<th>Time</th>
+		<th>Events</th>
+		<th>Events ID</th>
+
+	{% for line in events %}
+		<tr>
+			<td>{{line.start_time}}</td>
+			<td>{{line.title}}</td>
+			<td>{{line.event_id}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+	<br>
+
+		<!-- Event sign up -->
+
+	<style type="text/css">
+			form {
+			  font-family: 'PT Sans', sans-serif;
+			  color: white;
+			}
+
+			input[type=text] {
+				margin: 20px;
+			    padding: 10px 15px;
+			}
+
+			input[type=submit] {
+			    width: 10%;
+			    background-color:#813772;
+			    color: white;
+			    margin: 10px;
+			    padding: 10px 15px;
+			    border: none;
+			}
+
+			input[type=submit]:hover {
+			    background-color: #49274A;
+			}
+	</style>
+	<h4>Signup for an Event, {{username}}!</h4> 
+	<form action="/signup" method="POST">
+		<input type="text" name = "event_id" placeholder="event_id" required/> 
+		<input type="submit" value = Signup />
+	</form>
+
+
+	<!-- View my upcoming events! -->
+
+	<h4>View my upcoming events!</h4>
+
+	<br> 
+
+	<style type="text/css">
+		table, th, td{
+			border: 1px solid black;
+		}
+	</style>
+
+	<table>
+		<th>Event_id</th>
+		<th>Title</th>
+		<th>Time</th>
+
+	{% for line in viewEvents %}
+		<tr>
+			<td>{{line.event_id}}</td>
+			<td>{{line.title}}</td>
+			<td>{{line.start_time}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+	<!-- Friend's Events -->
+	<br>
+	<table>
+		<th>Friend</th>
+		<th>Event ID</th>
+		<th>Title</th>
+	<h4>Friends Events!</h4>
+
+	{% for line in friends_events %}
+		<tr>
+			<td>{{line.username}}</td>
+			<td>{{line.event_id}}</td>
+			<td>{{line.title}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+	<br>
+
+	<!-- Make a Post -->
+	<h4>Make a blog post!</h4>
+
+	<form action="/post" method="POST">
+		
+		<input type="text" name = "blog" placeholder="post" required/> 
+		<input type="submit" value = Post />
+	</form>
+
+	<style type="text/css">
+		table, th, td{
+			border: 1px solid black;
+		}
+	</style>
+
+	<table>
+		<th>Time</th>
+		<th>Posts</th>
+
+	{% for line in posts %}
+		<tr>
+			<td>{{line.ts}}</td>
+			<td>{{line.blog_post}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+	<p>
+
+	<style type="text/css">
+		a:link, a:visited {
+		    display: inline-block;
+		    font-size: 1em;
+		    width: 20%;
+		    background-color: #813772;
+		    color:white;
+		    text-decoration:none;
+		    padding: 10px 15px;
+
+		}
+
+		a:hover:not(.active) {
+    	background-color: #49274A;
+		}
+
+	</style>
+
+	<!-- Create Event -->
+
+	<a href="/event">Create Event</a>
+	<p> 
+
+	<a href="/goingto">Tag Event</a>
+	<p> 
+	<!-- Rate an Event -->
+
+	<a href="/rating">Rate an Event</a>
+	<p> 
+
+	<!-- Rate a location -->
+	<a href="/location">Rate a Location</a>
+	<p> 
+
+	<!-- Rate an Interest -->
+	<a href="/Interest">Rate an Interest</a>
+	<p> 
+
+	<!-- Create a group -->
+	<a href="/group">Create a group</a>
+	<p> 
+
+	<!-- Average Ratings for Location -->
+	<a href="/avgLocation">Average Ratings for Location</a>
+	<p>
+
+	<!-- Average Ratings for Event -->
+	<a href="/avgEvent">Average Ratings for Events</a>
+	<p> 
+
+	<!--Event Search -->
+	<a href="/event_search">Search for an Event</a>
+	<p> 
+
+
+	<!--Interests -->
+	<a href="/interests">Interests</a>
+	<p> 
+
+	<!-- Select Interest -->
+	<a href="/selectInterest">Select Interest</a>
+	<p>
+
+	<!-- Logout -->
+	<a href="/logout">Logout</a>
+	<p>
+
+	</body>
+
+
+</html>

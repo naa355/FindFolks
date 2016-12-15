@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/addinterests" method="POST">
+	<input type="text" name = "category" placeholder="Category" required/>
+	<input type="text" name = "keyword" placeholder="Key Word or Phrase" required/>
+	</br>
+	<input type="submit" value = Add />
+</form>
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+<table>
+	<th>Category</th>
+	<th>Key Word</th>
+
+{% for line in interested_in %}
+	<tr>
+		<td>{{line.category}}</td>
+		<td>{{line.keyword}}</td>
+	</tr>
+{% endfor %}
+</table>
+<a href="/home">Home</a>
+</body>
+</html>

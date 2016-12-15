@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+{% if not message %}
+	<a href="/login">Login</a>
+	<a href="/register">Register</a>
+	<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+	</style>
+
+	<table>
+		<th>Time</th>
+		<th>Events</th>
+
+	{% for line in events %}
+		<tr>
+			<td>{{line.start_time}}</td>
+			<td>{{line.title}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+{% endif %}
+
+{% if message %}
+	<a href="/logout">Logout</a>
+	<a href="/remove_account">Remove Account</a>
+	<p class="message">You are logged in {{message}}. You have {{num}} follower(s)</p> </br>
+	<a href="/tweets">View your tweets</a> </br>
+	<a href="/find_people">Find people to follow</a> </br>
+	<a href="/unfollow">Unfollow someone</a> </br>
+	<a href="/view_followed">View people you have followed</a> </br>
+	</br>
+
+        <h4>15 most recent tweets from you and your followers </h4> </br>
+
+	{% for line in tweets%}
+	        <p>{{line}}</p>
+	        <hr>
+	{% endfor %}
+	{% endif %}
+</body>
+
+</html>

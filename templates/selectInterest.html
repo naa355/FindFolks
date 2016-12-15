@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h3>Interests</h3>
+<br>
+
+<style type="text/css">
+    table, th, td{
+        border: 1px solid black;
+    }
+</style>
+
+
+<table>
+    <th>Category </th>
+    <th>Keyword</th>
+
+{% for line in selectInterests %}
+    <tr>
+        <td>{{line.category}}</td>
+        <td>{{line.keyword}}</td>
+    </tr>
+{% endfor %}
+
+    <p>Choose an interests to see groups that share this interest: </p>
+    <form action="/chooseInterests" method="POST">
+        <label for="interests">Choices:</label>
+        <select name="interests">
+        {% for line in selectInterests %}
+            <option>{{line.category}}</option>
+        {%endfor%}
+        </select>
+        <input type="submit" name="submit" value="Select">
+    </form>
+</table>
+<br>
+
+<a href="/home">Home</a>
+
+</body>
+
+
+</html>

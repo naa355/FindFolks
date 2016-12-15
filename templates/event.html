@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html>	
+
+<body>
+	<h3>Event Groups</h3>
+<br> 
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>Group ID </th>
+	<th>Group Name</th>
+
+{% for line in chooseEvents %}
+	<tr>
+		<td>{{line.group_id}}</td>
+		<td>{{line.group_name}}</td>
+	</tr>
+{% endfor %}
+
+	<p>Choose a group to create an event for: </p>
+	<form action="/createEvent" method="POST">
+		<label for="group">Choices:</label>
+		<select name="group">
+		{% for line	in chooseEvents %}
+			<option>{{line.group_id}}</option>
+		{%endfor%}
+		</select>
+		<input type="submit" name="submit" value="Create">
+	</form>
+</table>
+<br>
+
+<a href="/home">Home</a>
+
+</body>
+
+
+</html>
